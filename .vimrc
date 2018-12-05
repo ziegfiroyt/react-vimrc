@@ -16,6 +16,7 @@ Plug 'voronkovich/ctrlp-nerdtree.vim'
 Plug 'kien/ctrlp.vim'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'mxw/vim-jsx'
+Plug 'mileszs/ack.vim'
 call plug#end()
 
 syntax enable
