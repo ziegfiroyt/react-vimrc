@@ -24,5 +24,6 @@ that's all.
 ctrl+p: search
 ctrl+shift+l: code prettifier
 :Bookmark project-name / shift+b: list bookmarks
+:Ack {search_query} / search in project files (require: ack-grep)
 ```
 <img src="image.png" />
