@@ -22,7 +22,7 @@ that's all.
 ## some tricks
 ```
 ctrl+p: search
-ctrl+l: code prettifier
+ctrl+shift+l: code prettifier
 :Bookmark project-name / shift+b: list bookmarks
 ```
 <img src="image.png" />
