@@ -18,6 +18,7 @@ Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'mxw/vim-jsx'
 Plug 'mileszs/ack.vim'
 Plug 'beanworks/vim-phpfmt'
+Plug 'sheerun/vim-polyglot'
 call plug#end()
 
 syntax enable
@@ -54,6 +55,7 @@ set termguicolors
 
 noremap <leader>f :Files <cr>
 nnoremap <leader>b :Buffers <cr>
+set guifont=Ubuntu\ Mono\ 11 
 
 let NERDTreeShowHidden=1
 
@@ -77,3 +79,4 @@ let g:phpfmt_autosave = 0
 map <C-S-l> :Prettier<CR>
 map <C-S-k> :PhpFmt<CR>
 nnoremap <silent> <Leader>v :NERDTreeFind<CR>
+map <F8> ggVG=
