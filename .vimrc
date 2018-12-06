@@ -17,6 +17,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'mxw/vim-jsx'
 Plug 'mileszs/ack.vim'
+Plug 'beanworks/vim-phpfmt'
 call plug#end()
 
 syntax enable
@@ -37,7 +38,6 @@ let g:javascript_conceal_super                = "Ω"
 let g:javascript_conceal_arrow_function       = "⇒"
 let g:javascript_conceal_noarg_arrow_function = "🞅"
 let g:javascript_conceal_underscore_arrow_function = "🞅"
-
 let g:NERDTreeIndicatorMap = {
     \ "Modified"  : "✹",
     \ "Staged"    : "✚",
@@ -49,7 +49,6 @@ let g:NERDTreeIndicatorMap = {
     \ "Clean"     : "✔︎",
     \ "Unknown"   : "?"
     \ }
-
 colorscheme monokai-phoenix
 set termguicolors
 
@@ -68,12 +67,13 @@ autocmd VimEnter * call StartUp()
 set number
 set encoding=UTF-8
 let g:UltiSnipsExpandTrigger="<C-l>"
-
+let g:phpfmt_standard = 'PSR2'
 set expandtab
 set shiftwidth=2
 set softtabstop=2
 
-map <C-n> :NERDTreeToggle<CR>
-map <C-S-l> :Prettier<CR>
-nnoremap <silent> <Leader>v :NERDTreeFind<CR>
+let g:phpfmt_autosave = 0
 
+map <C-S-l> :Prettier<CR>
+map <C-S-k> :PhpFmt<CR>
+nnoremap <silent> <Leader>v :NERDTreeFind<CR>
