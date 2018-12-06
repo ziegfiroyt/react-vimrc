@@ -76,6 +76,7 @@ set softtabstop=2
 
 let g:phpfmt_autosave = 0
 
+map <C-n> :NERDTreeToggle<CR>
 map <C-S-l> :Prettier<CR>
 map <C-S-k> :PhpFmt<CR>
 nnoremap <silent> <Leader>v :NERDTreeFind<CR>
