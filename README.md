@@ -21,9 +21,10 @@ that's all.
 
 ## some tricks
 ```
-ctrl+p: search
-ctrl+shift+l: code prettifier
+ctrl+p: search files in project
+ctrl+shift+l: code prettifier (for js,jsx,css files)
 :Bookmark project-name / shift+b: list bookmarks
-:Ack {search_query} / search in project files (require: ack-grep)
+:Ack {search_query} / search word in project files (require: ack-grep)
+F8 / formatter (for php files)
 ```
 <img src="image.png" />
