@@ -82,3 +82,17 @@ map <C-S-k> :PhpFmt<CR>
 nnoremap <silent> <Leader>v :NERDTreeFind<CR>
 map <F8> ggVG=
 map <F12> <C-]> 
+
+function MirrorNerdTreeIfOneWindow()
+  if winnr("$") < 2
+    NERDTreeMirror
+
+    " hack to move the focus from the NERDTree to the main window
+    wincmd p
+    wincmd l
+  endif
+endfunction
+
+autocmd GuiEnter * silent NERDTree
+autocmd VimEnter * silent NERDTree
+autocmd TabEnter * silent exe MirrorNerdTreeIfOneWindow()
