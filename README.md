@@ -25,7 +25,6 @@ ctrl+p: search files in project
 ctrl+shift+l: code prettifier (for js,jsx,css files)
 :Bookmark project-name / shift+b: list bookmarks
 :Ack {search_query} / search word in project files (require: ack-grep)
-F8 / formatter (for php files)
 F12 / go to definition for php
 ctrl+o: go to prev file
 ctrl+i: go to next file
