@@ -24,11 +24,23 @@ Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
 Plug 'ap/vim-css-color'
 Plug 'tpope/vim-commentary'
+Plug 'w0rp/ale'
+Plug 'jparise/vim-graphql'
 call plug#end()
 
 syntax on
 
+set t_Co=256
 set background=dark
+
+let g:ale_fixers = {
+ \ 'javascript': ['eslint']
+ \ }
+
+let g:ale_sign_error = '@'
+let g:ale_sign_warning = '!!'
+
+let g:ale_fix_on_save = 1
 
 let g:javascript_conceal_null                 = "ø"
 let g:javascript_conceal_this                 = "@"
@@ -87,6 +99,7 @@ autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.gra
 map <F8> ggVG
 map <C-S-l> :Prettier<CR>
 map <C-n> :NERDTreeToggle<CR>
+map <F12> :ALEGoToDefinition<CR>
 
 autocmd GuiEnter * silent NERDTree
 autocmd VimEnter * silent NERDTree
