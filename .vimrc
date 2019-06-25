@@ -26,12 +26,14 @@ Plug 'ap/vim-css-color'
 Plug 'tpope/vim-commentary'
 Plug 'w0rp/ale'
 Plug 'jparise/vim-graphql'
+Plug 'dikiaap/minimalist'
 call plug#end()
 
 syntax on
 
 set t_Co=256
 set background=dark
+colorscheme minimalist
 
 let g:ale_fixers = {
  \ 'javascript': ['eslint']
