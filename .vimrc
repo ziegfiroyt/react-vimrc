@@ -26,15 +26,19 @@ Plug 'ap/vim-css-color'
 Plug 'tpope/vim-commentary'
 Plug 'w0rp/ale'
 Plug 'jparise/vim-graphql'
-Plug 'dikiaap/minimalist'
+Plug 'elzr/vim-json'
+Plug 'patstockwell/vim-monokai-tasty'
 call plug#end()
 
 syntax on
 
 set t_Co=256
 set background=dark
-colorscheme minimalist
+let g:vim_monokai_tasty_italic = 1
+colorscheme vim-monokai-tasty
 
+
+let g:airline_theme='monokai_tasty'
 let g:ale_fixers = {
  \ 'javascript': ['eslint']
  \ }
@@ -131,3 +135,7 @@ autocmd BufEnter * call SyncTree()
 " - gcc to commentout single line
 " - gc to commentout the target of a motion
 
+highlight Comment cterm=italic
+if (has("termguicolors"))
+  set termguicolors
+endif
