@@ -32,56 +32,49 @@ call plug#end()
 
 syntax on
 
+" COLORSCHEME 
 set t_Co=256
 set background=dark
 let g:vim_monokai_tasty_italic = 1
 colorscheme vim-monokai-tasty
 
+highlight Comment cterm=italic
+if (has("termguicolors"))
+  set termguicolors
+endif
 
 let g:airline_theme='monokai_tasty'
 let g:ale_fixers = {
- \ 'javascript': ['eslint']
- \ }
+\ 'javascript': ['eslint']
+\ }
 
+set guifont=Ubuntu\ Mono\ 11
+set noswapfile
+
+" LINTER SETTINGS
+" ------------------------------------------------
 let g:ale_sign_error = '@'
 let g:ale_sign_warning = '!!'
 
-let g:ale_fix_on_save = 1
+" let g:ale_fix_on_save = 1
 
-let g:javascript_conceal_null                 = "ø"
-let g:javascript_conceal_this                 = "@"
-let g:javascript_conceal_return               = "⇚"
-let g:javascript_conceal_undefined            = "¿"
-let g:javascript_conceal_NaN                  = "ℕ"
-let g:javascript_conceal_prototype            = "¶"
-let g:javascript_conceal_static               = "•"
-let g:javascript_conceal_super                = "Ω"
-let g:javascript_conceal_arrow_function       = "⇒"
-let g:javascript_conceal_noarg_arrow_function = "🞅"
-let g:javascript_conceal_underscore_arrow_function = "🞅"
+" NERDTree
+" -----------------------------------------------
 
-let g:NERDTreeIndicatorMap = {
-    \ "Modified"  : "✹",
-    \ "Staged"    : "✚",
-    \ "Untracked" : "✭",
-    \ "Renamed"   : "➜",
-    \ "Unmerged"  : "═",
-    \ "Deleted"   : "✖",
-    \ "Dirty"     : "✗",
-    \ "Clean"     : "✔︎",
-    \ "Unknown"   : "?"
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹ ",
+    \ "Staged"    : "✚ ",
+    \ "Untracked" : "✭ ",
+    \ "Renamed"   : "➜ ",
+    \ "Unmerged"  : "═ ",
+    \ "Deleted"   : "✖ ",
+    \ "Dirty"     : "✗ ",
+    \ "Clean"     : "✔︎ ",
+    \ 'Ignored'   : '☒ ',
+    \ "Unknown"   : "? "
     \ }
 
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_working_path_mode = 'r'
-let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
-
 let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
-
-:nnoremap <F2> :buffers<CR>:buffer<Space>
-set guifont=Ubuntu\ Mono\ 11
-set noswapfile
 
 let NERDTreeShowHidden=0
 function! StartUp()
@@ -90,29 +83,6 @@ function! StartUp()
   end
 endfunction
 autocmd VimEnter * call StartUp()
-
-set number               
-set encoding=UTF-8
-set expandtab
-set shiftwidth=2
-set softtabstop=2
-let g:UltiSnipsExpandTrigger="<C-l>"
-
-let g:prettier#quickfix_enabled = 0
-let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html,*.htm PrettierAsync
-
-map <F8> ggVG
-map <C-S-l> :Prettier<CR>
-map <C-n> :NERDTreeToggle<CR>
-map <F12> :ALEGoToDefinition<CR>
-
-autocmd GuiEnter * silent NERDTree
-autocmd VimEnter * silent NERDTree
-
-"-- AUTOCOMPLETION --"
-filetype plugin on
-set omnifunc=syntaxcomplete#Complete
 
 " Check if NERDTree is open or active
 function! IsNERDTreeOpen()        
@@ -128,6 +98,51 @@ function! SyncTree()
   endif
 endfunction
 
+" CTRL-P
+" --------------------------------------------------
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'r'
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+
+" --------------------------------------------------
+set number               
+set encoding=UTF-8
+set expandtab
+set shiftwidth=2
+set softtabstop=2
+let g:UltiSnipsExpandTrigger="<C-l>"
+
+let g:prettier#quickfix_enabled = 0
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html,*.htm PrettierAsync
+
+" Key shortcuts
+" ------------------------------------------------
+nnoremap <F2> :buffers<CR>:buffer<Space>
+nnoremap <Leader>1 :1b<CR>
+nnoremap <Leader>2 :2b<CR>
+nnoremap <Leader>3 :3b<CR>
+nnoremap <Leader>4 :4b<CR>
+nnoremap <Leader>5 :5b<CR>
+nnoremap <Leader>6 :6b<CR>
+nnoremap <Leader>7 :7b<CR>
+nnoremap <Leader>8 :8b<CR>
+nnoremap <Leader>9 :9b<CR>
+nnoremap <Leader>0 :10b<CR>
+map <F8> ggVG
+map <C-S-l> :Prettier<CR>
+map <F3> :NERDTreeToggle<CR>
+map <F12> :ALEGoToDefinition<CR>
+
+autocmd GuiEnter * silent NERDTree
+autocmd VimEnter * silent NERDTree
+
+"-- AUTOCOMPLETION --"
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete
+
+
 " Highlight currently open buffer in NERDTree
 autocmd BufEnter * call SyncTree()
 
@@ -135,7 +150,3 @@ autocmd BufEnter * call SyncTree()
 " - gcc to commentout single line
 " - gc to commentout the target of a motion
 
-highlight Comment cterm=italic
-if (has("termguicolors"))
-  set termguicolors
-endif
