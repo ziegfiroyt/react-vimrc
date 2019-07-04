@@ -24,10 +24,10 @@ Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
 Plug 'ap/vim-css-color'
 Plug 'tpope/vim-commentary'
-Plug 'w0rp/ale'
 Plug 'jparise/vim-graphql'
 Plug 'elzr/vim-json'
 Plug 'patstockwell/vim-monokai-tasty'
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
 syntax on
@@ -44,19 +44,25 @@ if (has("termguicolors"))
 endif
 
 let g:airline_theme='monokai_tasty'
-let g:ale_fixers = {
-\ 'javascript': ['eslint']
-\ }
-
 set guifont=Ubuntu\ Mono\ 11
 set noswapfile
 
 " LINTER SETTINGS
 " ------------------------------------------------
-let g:ale_sign_error = '@'
-let g:ale_sign_warning = '!!'
 
-" let g:ale_fix_on_save = 1
+" let g:ale_fixers = {
+" \ 'javascript': ['eslint']
+" \ }
+
+
+" let g:ale_sign_error = '@'
+" let g:ale_sign_warning = '!!'
+
+" let g:ale_fix_on_save = 0
+" let g:ale_lint_on_enter = 0
+" let g:ale_lint_on_insert_leave = 0
+" let g:ale_lint_on_text_change = 'never'
+
 
 " NERDTree
 " -----------------------------------------------
@@ -115,7 +121,7 @@ let g:UltiSnipsExpandTrigger="<C-l>"
 
 let g:prettier#quickfix_enabled = 0
 let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html,*.htm PrettierAsync
+" autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html,*.htm PrettierAsync
 
 " Key shortcuts
 " ------------------------------------------------
