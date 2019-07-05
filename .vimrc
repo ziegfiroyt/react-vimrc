@@ -17,7 +17,6 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'ryanoasis/vim-devicons'
 Plug 'pangloss/vim-javascript'
 Plug 'crusoexia/vim-javascript-lib'
-Plug 'mileszs/ack.vim'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-surround'
@@ -28,6 +27,9 @@ Plug 'jparise/vim-graphql'
 Plug 'elzr/vim-json'
 Plug 'patstockwell/vim-monokai-tasty'
 Plug 'tpope/vim-fugitive'
+Plug 'mhinz/vim-startify'
+Plug 'mhinz/vim-grepper'
+Plug 'junegunn/goyo.vim'
 call plug#end()
 
 syntax on
@@ -35,6 +37,7 @@ syntax on
 " COLORSCHEME 
 set t_Co=256
 set background=dark
+" set cursorline
 let g:vim_monokai_tasty_italic = 1
 colorscheme vim-monokai-tasty
 
@@ -82,9 +85,11 @@ let g:NERDTreeIndicatorMapCustom = {
 
 let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
 
+
 let NERDTreeShowHidden=0
-function! StartUp()
+ function! StartUp()
   if 0 == argc()
+    Startify
     NERDTree /var/www
   end
 endfunction
@@ -156,3 +161,4 @@ autocmd BufEnter * call SyncTree()
 " - gcc to commentout single line
 " - gc to commentout the target of a motion
 
+hi Normal guibg=NONE ctermbg=NONE
