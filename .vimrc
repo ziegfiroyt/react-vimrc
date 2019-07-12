@@ -27,26 +27,32 @@ Plug 'jparise/vim-graphql'
 Plug 'elzr/vim-json'
 Plug 'patstockwell/vim-monokai-tasty'
 Plug 'tpope/vim-fugitive'
-Plug 'mhinz/vim-startify'
 Plug 'mhinz/vim-grepper'
 Plug 'junegunn/goyo.vim'
+Plug 'rakr/vim-one'
+Plug 'mhinz/vim-startify'
 call plug#end()
 
 syntax on
 
 " COLORSCHEME 
 set t_Co=256
-set background=dark
-" set cursorline
-let g:vim_monokai_tasty_italic = 1
+" FOR LIGHT
+" colorscheme one
+" set background=light
+" let g:airline_theme='one'
+" let g:one_allow_italics = 1
+
+" FOR DARK
 colorscheme vim-monokai-tasty
+let g:airline_theme='monokai_tasty'
+let g:vim_monokai_tasty_italic = 1
 
 highlight Comment cterm=italic
 if (has("termguicolors"))
   set termguicolors
 endif
 
-let g:airline_theme='monokai_tasty'
 set guifont=Ubuntu\ Mono\ 11
 set noswapfile
 
@@ -141,6 +147,7 @@ nnoremap <Leader>7 :7b<CR>
 nnoremap <Leader>8 :8b<CR>
 nnoremap <Leader>9 :9b<CR>
 nnoremap <Leader>0 :10b<CR>
+nnoremap ı i
 map <F8> ggVG
 map <C-S-l> :Prettier<CR>
 map <F3> :NERDTreeToggle<CR>
